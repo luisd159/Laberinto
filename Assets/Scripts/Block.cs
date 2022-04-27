@@ -5,6 +5,7 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     public Ocupado occupidedFigure;
+    public Player occupidedPlayer;
     public int index;
     public bool isOccupied => occupidedFigure != null;
 
@@ -17,10 +18,12 @@ public class Block : MonoBehaviour
     public void setFigure(Ocupado ocupado)
     {
         occupidedFigure = ocupado;
-
     }
 
-
+    public void setPlayer(Player player)
+    {
+        occupidedPlayer = player;
+    }
 
 
 }

@@ -25,9 +25,12 @@ public class GameManager : MonoBehaviour
         blocks = new List<Block>();
         GenerateBoard();
         SpawnFigure(4);
+        SpawnPlayer(1);
         orderBlocksList = blocks.OrderBy(b => b.Pos.x).ThenBy(b => b.Pos.y).ToList();
     }
 
+    
+    // Generar Tablero
     void GenerateBoard()
     {
         int index = 0;
@@ -48,6 +51,8 @@ public class GameManager : MonoBehaviour
         Camera.main.transform.position = new Vector3(center.x, center.y, -20);
     }
 
+
+    //Guardar la informacion del bloque
     public void setCurrentBlock(Block block)
     {
         if (block == null)
@@ -61,6 +66,7 @@ public class GameManager : MonoBehaviour
         selectedBlock = block;
     }
 
+    //spawn de lugares bloqueados
     void SpawnFigure(int amount)
     {
         var orderList = blocks.OrderBy(b => Random.Range(0, blocks.Count)).ToList();
@@ -70,9 +76,24 @@ public class GameManager : MonoBehaviour
             Ocupado ocupado = Instantiate(ocupadoPrefab, block.Pos, Quaternion.identity);
             ocupado.setValue(i);
             block.setFigure(ocupado);
-            block.transform.localScale = new Vector3(0, 0, 981);
             ocupado.Init(block, (int)block.Pos.x, (int)block.Pos.y);
             setCurrentBlock(block);
+        }
+    }
+
+    //Spawnear Player
+    void SpawnPlayer(int amount)
+    {
+        var orderList = blocks.OrderBy(b => Random.Range(0, blocks.Count)).ToList();
+        for (int i = 0; i < amount; i++)
+        {
+            Block block = orderList[i];
+            Player player = Instantiate(ocupadoPrefab, block.Pos, Quaternion.identity);
+            player.setValue(i);
+            block.setPlayer(player);
+            player.Init(block, (int)block.Pos.x, (int)block.Pos.y);
+            setCurrentBlock(block);
+
         }
     }
 

@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.5
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -235,8 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61c80157deb8f5408c45dfda3fad5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 5
-  height: 5
+  width: 7
+  height: 7
   blockPrefab: {fileID: 3623150899827498388, guid: 48ab6c475898b8a4c848606ad6f84764, type: 3}
   boardPrefab: {fileID: -4841681545001665430, guid: ff47a98749d5cfe44b8190b977b8d5a5, type: 3}
   ocupadoPrefab: {fileID: -2220604674568724483, guid: da52255c484d2a846a7e9cadb4dc7d5c, type: 3}
